@@ -18,37 +18,20 @@ if(!empty($_POST['update']) && !empty($_POST['id']) )  {
       $name=$row["fullname"];
       $email=$row["email"];
     }
-    echo "Current Details: " ."<b> - Name:</b> " . $name. " <b>Email:</b>" . $email. "<br>";
+    // echo "Current Details: " ."<b> - Name:</b> " . $name. " <b>Email:</b>" . $email. "<br>";
   } else {
     echo "Error updating";
   }
 }
 
-// Button click to update using GET method
-// if(!empty($_GET['update']) && !empty($_GET['id']) )  {
-//   $id=$_GET['id'];
-//   // Fetch record with id and populate it in the form
-//   $query2 = "SELECT * FROM users WHERE id='".$_GET['id']."' ";
-//   $result = $conn->query($query2);
-//   if ($result->num_rows > 0) {
-//     // Output data for each row
-//     while($row = $result->fetch_assoc()) {
-//       $name=$row["fullname"];
-//       $email=$row["email"];
-//     }
-//     echo "Current Details: " ."<b> - Name:</b> " . $name. " <b>Email:</b>" . $email. "<br>";
-//   } else {
-//     echo "Error updating";
-//   }
-// }
-// Check that the input fields are not empty and process the data
 if(!empty($_POST['fullname']) && !empty($_POST['email']) && !empty($_POST['id']) ){
     // Insert into the database
   $query = "UPDATE users SET fullname='".$_POST['fullname']."', email='".$_POST['email']."' WHERE id='".$_POST['id']."' ";
   if (mysqli_query($conn, $query)) {
       echo "Record updated successfully!<br/>";
-      echo '<a href="form-get.php">Get Form</a><br/>
-            <a href="form-post.php">Post Form</a>';
+      header("Location: users.php");
+      // echo '<a href="form-get.php">Get Form</a><br/>
+      //       <a href="form-post.php">Post Form</a>';
       die(0);
   } else {
       // Display an error message if unable to update the record

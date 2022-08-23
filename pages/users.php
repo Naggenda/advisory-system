@@ -16,7 +16,7 @@ include 'connect.php';
                     <div>
                         <table border="1" style="width: 90%">
                         <tr>
-                                <th># id</th>
+                                <th hidden="true"># id</th>
                                 <th>Full Name</th>
                                 <th>Email Adress</th>
                                 <th>usertype</th>
@@ -32,21 +32,25 @@ include 'connect.php';
                             if($result-> num_rows > 0){
                             
                                 while ($row = $result-> fetch_assoc()){
-                                    echo "<tr><td>". $row["id"] ."</td><td>". $row['fullname'] ."</td><td>". $row['email'] ."</td><td>". $row['usertype'] ."</td><td>". $row['contact'] ."</td></td>"."</td><td>". $row['lpassword'] ."</td>".
+                                    echo "<tr><td>". $row['fullname'] ."</td><td>". $row['email'] ."</td><td>". $row['usertype'] ."</td><td>". $row['contact'] ."</td></td>"."</td><td>". $row['lpassword'] ."</td>".
                                     "<td>",
                                     "<form action='update.php' method='post'>
                                      <input name='id' value='",$row["id"],"' hidden>
                                      <button type='submit' name='update' value='update'>Edit</button>
                                     </form>",
                                 "</td>",
-                                "<td>",
-                                    "<form action='' method='post'>
-                                     <input name='id' value='",$row["id"],"' hidden>
-                                     <button type='submit' name='delete' value='delete'>Delete</button>
-                                    </form>",
-                                "</td>",
-                                "</tr>";
-
+                                "<td>"
+                                ?>
+                                    <!-- // "<form action='delete_user.php' method='post'>
+                                    //  <input name='id' value='",$row["id"],"' hidden> -->
+                                     <button type='submit' name='delete' value='delete'>
+                                     <a href="delete_user.php?id=<?php echo $row["id"]; ?>">Delete</a>
+                                     </button> 
+                                   
+                                    </form>
+                                </td>
+                                </tr>
+<?php
 
                                 }
                                 echo "</table>";

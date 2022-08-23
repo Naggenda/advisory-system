@@ -64,7 +64,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Pages</span>
@@ -75,7 +75,7 @@
                 <a class="collapse-item" href="./register.php">Register</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
@@ -116,13 +116,13 @@
         </button>
 
         <!-- Topbar Search -->
-        <form
+        <form action="../../search/search.php" method="POST"
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                    aria-label="Search" aria-describedby="basic-addon2">
+                    aria-label="Search" aria-describedby="basic-addon2" name="search">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
+                    <button class="btn btn-primary" type="submit" name="submit-search">
                         <i class="fas fa-search fa-sm"></i>
                     </button>
                 </div>
